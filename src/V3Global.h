@@ -108,6 +108,7 @@ class V3Global final {
     bool m_usesZeroDelay = false;  // Design uses #0 delay (or non-constant delay)
     bool m_hasForceableSignals = false;  // Need to apply V3Force pass
     bool m_hasAssignDeassign = false;  // Need to apply V3Force pass for assign/deassign statements
+    bool m_needDpiHooks = false;  // Insert DPI hooks into the model
     bool m_useParallelBuild = false;  // Use parallel build for model
     bool m_useRandSequence = false;  // Has `randsequence`
     bool m_useCovergroup = false;  // Has covergroup declarations
@@ -195,6 +196,8 @@ public:
     void setHasAssignDeassign() { m_hasAssignDeassign = true; }
     bool usesForce() const { return m_usesForce; }
     void setUsesForce() { m_usesForce = true; }
+    bool needDpiHooks() const { return m_needDpiHooks; }
+    void setNeedDpiHooks() { m_needDpiHooks = true; }
     V3HierGraph* hierGraphp() const { return m_hierGraphp; }
     void hierGraphp(V3HierGraph* graphp) { m_hierGraphp = graphp; }
     bool useParallelBuild() const { return m_useParallelBuild; }
